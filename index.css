@@ -1,0 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	margin: 10px;
+}
+
+table, tr, th, td {
+	
+}
+
+table {
+	margin: 20px;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+	border: solid 1px black;
+}
+
+.head-bar {
+	text-align: right;
+	margin: 0;
+	padding: 0;
+}
+
