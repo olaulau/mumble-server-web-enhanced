@@ -6,10 +6,6 @@
 </head>
 <body>
 
-<div class="head-bar">
-	<p><a href="weblist.old.php">OLD</a></p>
-</div>
-
 <?php
 
 require_once 'ChannelTree.class.php';
@@ -49,9 +45,11 @@ try {
 		$channels = $s->getChannels();
 		$players = $s->getUsers();
 		
-		
+		/*
 		// sorting users by channelName
 		$infos = array();
+		$infos['channelName'] = array();
+		$infos['nickname'] = array();
 		foreach($players as $state) {
 			$chan = $channels[$state->channel];
 			//$infos[] = array('channelName' => $chan->name, 'nickname' => $state->name);
@@ -60,7 +58,7 @@ try {
 			$infos['nickname'][] = $state->name;
 		}
 		array_multisort($infos['channelName'], $infos['nickname']);
-		
+		*/
 		/*
 		// display sorted users
 		?>
