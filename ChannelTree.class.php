@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Tree.class.php';
+
 class ChannelTree extends Tree {
 
 	protected $userList;
@@ -62,63 +64,3 @@ class ChannelTree extends Tree {
 	
 }
 
-
-
-
-class Tree {
-
-	protected $content;
-	protected $childs = array();
-	protected $parent;
-	
-	public function getContent(){
-		return $this->content;
-	}
-	
-	public function getChilds(){
-		return $this->childs;
-	}
-	
-	public function getParent() {
-		return $this->parent;
-	}
-
-	public function __construct($content, $parent=NULL) {
-		$this->content = $content;
-		$this->childs = array();
-		$this->parent = $parent;
-	}
-	
-	public function addChild($content) {
-		$tmp =  new $this($content, $this);
-		$this->childs[] = $tmp;
-		return $tmp;
-	}
-	
-	public function deleteNode() {
-		if(isset($this->parent)) {
-			$childs = &$this->parent->childs;
-			foreach($childs as $id => $child) {
-				if($this->content == $child->content) {
-					unset($childs[$id]);
-				}
-			}
-		}
-		else {
-			unset($this);
-		}
-	}
-	
-	public function toDisplayString($level=0) {
-		$res = '';
-		$res = str_pad($res, $level, "\t");
-		$res .= $this->content;
-		$res .= "\n";
-		
-		foreach($this->childs as $child) {
-			$res .= $child->toDisplayString($level+1);;
-		}
-		return $res;
-	}
-	
-}
