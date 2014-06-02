@@ -1,5 +1,6 @@
 <html>
 <head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="index.css" media="screen" />
 	<title>Userlist</title>
 </head>
@@ -51,8 +52,7 @@ try {
 		
 		// sorting users by channelName
 		$infos = array();
-		foreach($players as $id => $state) {
-//			var_dump($state); die;
+		foreach($players as $state) {
 			$chan = $channels[$state->channel];
 			//$infos[] = array('channelName' => $chan->name, 'nickname' => $state->name);
 			
@@ -61,6 +61,7 @@ try {
 		}
 		array_multisort($infos['channelName'], $infos['nickname']);
 		
+		/*
 		// display sorted users
 		?>
 		<h3>connected users</h3>
@@ -73,6 +74,7 @@ try {
 			echo "</tr>\n";
 		}
 		echo "</table>\n";
+		*/
 		
 		?>
 		<br/>
@@ -85,47 +87,33 @@ try {
 		<table><tr><th>Channel</th></tr>
 		<?php
 		foreach($channels as $channel) {
-//			var_dump($channel); die;
 			echo "<tr>";
 			echo "<td>".$channel->name."</td>";
 			echo "</tr>\n";
 		}
 		echo "</table>\n";
 		*/
-
-		?>
-		<h3>channel tree</h3>
-		<pre><?php
+		
 		$channelTree = makeChannelTreeFromList($channels);
-//		print_r($channelTree);
+		addUsersToChannelTree($channelTree, $players);
+		$fullChannelTree = $channelTree->toDisplayString();
+		$channelTree->deleteEmptychannels();
+		?>
+		
+		<h3>Full channel tree</h3>
+		<pre><?php
+		echo $fullChannelTree;
+		?>
+		</pre>
+		
+		<br/>
+
+		<h3>Reduced channel tree</h3>
+		<pre><?php
 		echo $channelTree->toDisplayString();
-		?></pre><?php
-		die;
-
-		
-		
-		
-	/*		
-	object(Murmur_Channel)#164 (7) {
-	  ["id"]=>
-	  int(0)
-	  ["name"]=>
-	  string(4) "Root"
-	  ["parent"]=>
-	  int(-1)
-	  ["links"]=>
-	  array(0) {
-	  }
-	  ["description"]=>
-	  string(0) ""
-	  ["temporary"]=>
-	  bool(false)
-	  ["position"]=>
-	  int(0)
-	}
-	*/
-		
-
+		?>
+		</pre>
+		<?php
 	}
 } catch (Ice_LocalException $ex) {
 	echo "Exception occured : <br/>";
