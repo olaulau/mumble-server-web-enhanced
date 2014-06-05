@@ -1,6 +1,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="refresh" content="120">
 	<link rel="stylesheet" type="text/css" href="index.css" media="screen" />
 	<title>Userlist</title>
 </head>
@@ -15,6 +16,11 @@ if (Ice_intversion() >= 30400) {
 	require 'Murmur.php';
 } else {
 	Ice_loadProfile();
+}
+
+$decoration = TRUE;
+if(isset($_GET['decoration']) && $_GET['decoration'] === "0") {
+	$decoration = FALSE;
 }
 
 
@@ -33,7 +39,8 @@ try {
 		if (! $name) {
 	  		$name =  $default["registername"];
 		}
-		echo "<h1>" . $name . "</h1>\n";
+		if($decoration)
+			echo "<h1>" . $name . "</h1>\n";
 		
 		// getting raw informations
 		$channels = $s->getChannels();
@@ -41,14 +48,16 @@ try {
 		
 		// display type
 		$page = basename($_SERVER['PHP_SELF']);
-		?>
-		<a href="<?= $page ?>?displayType=ChannelUserList">ChannelUserList</a>
-		<a href="<?= $page ?>?displayType=ChannelList">ChannelList</a>
-		<a href="<?= $page ?>?displayType=ChannelTree">ChannelTree</a>
-		<a href="<?= $page ?>?displayType=ChannelTreeUsers">ChannelTreeUsers</a>
-		<a href="<?= $page ?>?displayType=ChannelTreeReduced">ChannelTreeReduced</a>
-		<br/>
-		<?php
+		if($decoration) {
+			?>
+			<a href="<?= $page ?>?displayType=ChannelUserList">ChannelUserList</a>
+			<a href="<?= $page ?>?displayType=ChannelList">ChannelList</a>
+			<a href="<?= $page ?>?displayType=ChannelTree">ChannelTree</a>
+			<a href="<?= $page ?>?displayType=ChannelTreeUsers">ChannelTreeUsers</a>
+			<a href="<?= $page ?>?displayType=ChannelTreeReduced">ChannelTreeReduced</a>
+			<br/>
+			<?php
+		}
 		
 		if(isset($_GET['displayType'])) {
 			$displayType = $_GET['displayType'];
@@ -74,8 +83,12 @@ try {
 		
 		
 			// display sorted users
+			if($decoration) {
+				?>
+				<h3>connected users</h3>
+				<?php
+			}
 			?>
-			<h3>connected users</h3>
 			<table><tr><th>Channel</th><th>Name</th></tr>
 			<?php
 			for($i=0; $i<count($infos['channelName']); $i++) {
@@ -90,8 +103,12 @@ try {
 		
 		if($displayType === 'ChannelList') {
 			// display channel list
+			if($decoration) {
+				?>
+				<h3>channel list</h3>
+				<?php
+			}
 			?>
-			<h3>channel list</h3>
 			<table><tr><th>Channel</th></tr>
 			<?php
 			foreach($channels as $channel) {
@@ -109,32 +126,34 @@ try {
 				addUsersToChannelTree($channelTree, $players);
 			}
 			if($displayType === 'ChannelTree' || $displayType === 'ChannelTreeUsers') {
-				?>
-				<h3>Full channel tree</h3>
-				<pre><?php
+				if($decoration) {
+					?>
+					<h3>Full channel tree</h3>
+					<?php
+				}
+				?><pre><?php
 				echo $channelTree->toDisplayString();
-				?>
-				</pre>
-				<?php
+				?></pre><?php
 			}
 			
 			if($displayType === 'ChannelTreeReduced') {
-				?>
-				<h3>Reduced channel tree</h3>
-				<pre><?php
+				if($decoration) {
+					?>
+					<h3>Reduced channel tree</h3>
+					<?php
+				}
+				?><pre><?php
 				$reducerChannelTree = clone $channelTree;
 				$reducerChannelTree->deleteEmptychannels();
 				echo $reducerChannelTree->toDisplayString();
-				?>
-				</pre>
-				<?php
+				?></pre><?php
 			}
 			
 		}
 
-
 	}
-} catch (Ice_LocalException $ex) {
+}
+catch (Ice_LocalException $ex) {
 	echo "Exception occured : <br/>";
 	print_r($ex);
 }
