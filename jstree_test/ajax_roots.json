@@ -1,0 +1,10 @@
+[
+	{
+	  "text" : "Root 1",
+	  "children" : false
+	},
+	{
+	  "text" : "Root 2",
+	  "children" : false
+	}
+]
