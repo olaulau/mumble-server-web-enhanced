@@ -53,6 +53,34 @@ class ChannelTree extends Tree {
 		return $res;
 	}
 	
+	public function toJstreeObject($level=0) {
+		if( count($this->childs>0) ) {
+			$children = array();
+			foreach($this->childs as $child) {
+				$children[] = $child->toJstreeObject($level+1);
+			}
+		}
+		else
+			$children = FALSE;
+		
+		$res = stdClass::__set_state(array(
+			'text' => $this->content->name,
+			'icon' => '',
+			'state' => 
+				stdClass::__set_state(array(
+				'opened' => true,
+				'disabled' => true,
+				'selected' => false,
+			)),
+			'children' => $children,
+		));
+		
+		if(level===0) {
+			$res = array($res);
+		}
+		
+	}
+	
 	public function deleteEmptychannels() {
 		foreach($this->childs as $child) {
 			$child->deleteEmptychannels();
