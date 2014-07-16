@@ -35,20 +35,20 @@ Ubuntu 12.04
 Ubuntu 14.04
 =
 => [ubuntu precise package download page](http://packages.ubuntu.com/precise-updates/all/mumble-server-web/download)  
-`wget http://fr.archive.ubuntu.com/ubuntu/pool/universe/m/mumble/mumble-server-web_1.2.3-2ubuntu4.1_all.deb  
+`wget http://fr.archive.ubuntu.com/ubuntu/pool/universe/m/mumble/mumble-server-web_1.2.3-2ubuntu4.1_all.deb`  
 `dpkg -i mumble-server-web_1.2.3-2ubuntu4.1_all.deb`  
-(it mwill fail due to dependencies)  
+(it will fail due to dependencies)  
 `apt-get -f install`  
 `apt-get install libcgi-session-per`l  
-`dpkg -i mumble-server-web_1.2.3-2ubuntu4.1_all.de`b  
-`ln -s /etc/apache2/conf.d/mumble-server-web.conf etc/apache2/conf-available`/  
+`dpkg -i mumble-server-web_1.2.3-2ubuntu4.1_all.de`  
+`ln -s /etc/apache2/conf.d/mumble-server-web.conf etc/apache2/conf-available/`  
 `a2enconf mumble-server-web`  
 
 `vim /etc/php5/mods-available/IcePHP.ini`  
 `include_path = ".:/usr/share/Ice-3.5.1/php/lib/"`  
 
 `cd /usr/share/slice`  
-slice2php -I /usr/share/Ice-3.5.1/slice/ /usr/share/slice/Murmur.ice`  
+`slice2php -I /usr/share/Ice-3.5.1/slice/ /usr/share/slice/Murmur.ice`  
 `cd /usr/share/mumble-server-web/www/`  
 `ln -s /usr/share/slice/Murmur.php`  
 
