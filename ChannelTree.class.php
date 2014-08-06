@@ -59,25 +59,30 @@ class ChannelTree extends Tree {
 			foreach($this->childs as $child) {
 				$children[] = $child->toJstreeObject($level+1);
 			}
+			foreach($this->userList as $user) {
+// 				$children[] = $user->toJstreeObject($level+1);
+			}
 		}
 		else
 			$children = FALSE;
 		
-		$res = stdClass::__set_state(array(
+		$res = array(
 			'text' => $this->content->name,
 			'icon' => '',
 			'state' => 
-				stdClass::__set_state(array(
+				array(
 				'opened' => true,
 				'disabled' => true,
 				'selected' => false,
-			)),
+			),
 			'children' => $children,
-		));
+		);
 		
-		if(level===0) {
+		if($level === 0) {
 			$res = array($res);
 		}
+		
+		return $res;
 		
 	}
 	

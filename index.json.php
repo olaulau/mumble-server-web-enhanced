@@ -1,5 +1,7 @@
 <?php
 
+header('Content-type: application/json');
+
 require_once 'functions.inc.php';
 
 if (Ice_intversion() >= 30400) {
@@ -52,7 +54,7 @@ try {
 				$treeToDisplay = $reducerChannelTree;
 			}
 			
-			echo json_encode($treeToDisplay->toJsonObject());
+			echo json_encode($treeToDisplay->toJstreeObject());
 		}
 
 	}
