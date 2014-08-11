@@ -22,14 +22,17 @@ $(function () {
 
 
 function buildJsTree() {
-	// 6 create an instance when the DOM is ready
 	$('#jstree').jstree({
 		'core' : {
 			'data' : {
 				'url' : url
+			},
+			'themes': {
+				'responsive': false
 			}
 		}
 	});
+	//$.jstree.defaults.core.themes.responsive
 }
 
 
