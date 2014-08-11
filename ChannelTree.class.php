@@ -48,35 +48,46 @@ class ChannelTree extends Tree {
 		}
 		
 		foreach($this->childs as $child) {
-			$res .= $child->toDisplayString($level+1);;
+			$res .= $child->toDisplayString($level+1);
 		}
 		return $res;
 	}
 	
 	public function toJstreeObject($level=0) {
-		if( count($this->childs>0) ) {
+		if( count($this->childs > 0) ) {
 			$children = array();
+			foreach($this->userList as $user) {
+				$children[] = array(
+						'text' => $user,
+						'icon' => '',
+						'state' =>
+						array(
+								'opened' => false,
+								'disabled' => false,
+								'selected' => false,
+						),
+						'children' => FALSE,
+				);
+			}
 			foreach($this->childs as $child) {
 				$children[] = $child->toJstreeObject($level+1);
-			}
-			foreach($this->userList as $user) {
-// 				$children[] = $user->toJstreeObject($level+1);
 			}
 		}
 		else
 			$children = FALSE;
 		
 		$res = array(
-			'text' => $this->content->name,
-			'icon' => '',
-			'state' => 
+				'text' => $this->content->name,
+				'icon' => '',
+				'state' =>
 				array(
-				'opened' => true,
-				'disabled' => true,
-				'selected' => false,
-			),
-			'children' => $children,
+						'opened' => true,
+						'disabled' => true,
+						'selected' => false,
+				),
+				'children' => $children,
 		);
+		
 		
 		if($level === 0) {
 			$res = array($res);
