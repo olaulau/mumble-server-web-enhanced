@@ -1,11 +1,11 @@
 mumble-server-web-enhanced
 ==========================
 
-mumble web interface, based on the mumble-server-web old package
+a Mumble web interface, based on the mumble-server-web old package
 
-You shoud download [v0.1] (https://github.com/olaulau/mumble-server-web-enhanced/tree/v0.1) tag/release, last "working and clean" version.
-It currently displays an ASCII tree with channels and players.
+New version [v0.2](https://github.com/olaulau/mumble-server-web-enhanced/tree/v0.2) with tree display (thanks to [JSTree](http://www.jstree.com/demo/)), and AJAX refresh.
+It currently displays a tree with channels and players.
 
-I'm currently working on a nicer version using [JSTree] (http://www.jstree.com/demo/)
+Next version will focus on displaying more informations, and design (as in mumble client).
 
-See [INSTALL.md](https://github.com/olaulau/mumble-server-web-enhanced/blob/master/INSTALL.md) for detailed installation instructions.
+See [INSTALL.md](https://github.com/olaulau/mumble-server-web-enhanced/blob/master/INSTALL.md) for detailled installation instructions.
