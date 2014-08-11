@@ -55,6 +55,7 @@ try {
 			}
 			
 			echo json_encode($treeToDisplay->toJstreeObject());
+			break;
 		}
 
 	}
