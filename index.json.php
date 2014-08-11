@@ -32,6 +32,10 @@ try {
 		$channels = $s->getChannels();
 		$players = $s->getUsers();
 		
+		// sort datas by name
+		usort($channels , "objectCompareByName");
+		usort($players , "objectCompareByName");
+		
 		if(isset($_GET['displayType'])) {
 			$displayType = $_GET['displayType'];
 		}
