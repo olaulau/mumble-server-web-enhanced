@@ -49,9 +49,9 @@ try {
 				$treeToDisplay = $channelTree;
 			}
 			elseif($displayType === 'ChannelTreeReduced') {
-				$reducerChannelTree = clone $channelTree;
-				$reducerChannelTree->deleteEmptychannels();
-				$treeToDisplay = $reducerChannelTree;
+				$reducedChannelTree = clone $channelTree;
+				$reducedChannelTree->deleteEmptychannels();
+				$treeToDisplay = $reducedChannelTree;
 			}
 			
 			echo json_encode($treeToDisplay->toJstreeObject());

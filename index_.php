@@ -14,32 +14,8 @@
 	<script src="jstree_test/dist/libs/jquery.js"></script>
 	<!-- 5 include the minified jstree source -->
 	<script src="jstree_test/dist/jstree.min.js"></script>
-	<script>
-	$(function () {
-  
-   		// 6 create an instance when the DOM is ready
-		$('#jstree').jstree({
-			'core' : {
-				'data' : {
-					'url' : 'index.json.php'
-				}
-			}
-		});
-		
-		$("#refresh").click(function(){
-			$("#jstree").jstree("destroy");
-			$('#jstree').jstree({
-				'core' : {
-					'data' : {
-						'url' : 'index.json.php'
-					}
-				}
-			});
-		});
+	<script src="index.js"></script>
 
-	});
-	</script>
-	
 	<button id="refresh">REFRESH</button>
 </body>
 </html>
