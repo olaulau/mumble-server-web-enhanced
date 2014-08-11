@@ -11,9 +11,14 @@ class ChannelTree extends Tree {
 		$this->userList = array();
 	}
 	
+	public function getChannel() {
+		return $this->getContent();
+	}
+	
 	public function getUserList() {
 		return $this->userList;
 	}
+	
 	
 	public function addUser($user) {
 		$this->userList[] = $user;
@@ -21,10 +26,10 @@ class ChannelTree extends Tree {
 	
 	// recursive search
 	public function getNodeByChannelId($id) {
-		if($this->content->id === $id) {
+		if($this->getChannel()->id === $id) {
 			return $this;
 		}
-		foreach($this->childs as $child) {
+		foreach($this->getChilds() as $child) {
 			$res = $child->getNodeByChannelId($id);
 			if(isset($res)) {
 				return $res;
@@ -33,32 +38,33 @@ class ChannelTree extends Tree {
 		return NULL;
 	}
 	
+	
 	public function toDisplayString($level=0) {
 		$res = '';
 		$res = str_pad($res, $level, "\t");
-		$res .= "" . $this->content->name . "";
+		$res .= "" . $this->getChannel()->name . "";
 		$res .= "\n";
 		
-		foreach($this->userList as $user) {
+		foreach($this->getUserList() as $user) {
 			$line = '';
 			$line .= str_pad($line, $level, "\t");
 			$res .= $line;
-			$res .= "  < " . $user . " >";
+			$res .= "  < " . $user->name . " >";
 			$res .= "\n";
 		}
 		
-		foreach($this->childs as $child) {
+		foreach($this->getChilds() as $child) {
 			$res .= $child->toDisplayString($level+1);
 		}
 		return $res;
 	}
 	
 	public function toJstreeObject($level=0) {
-		if( count($this->childs > 0) ) {
+		if( count($this->getChilds() > 0) ) {
 			$children = array();
-			foreach($this->userList as $user) {
+			foreach($this->getUserList() as $user) {
 				$children[] = array(
-						'text' => $user,
+						'text' => $user->name,
 						'icon' => '',
 						'state' =>
 						array(
@@ -69,7 +75,7 @@ class ChannelTree extends Tree {
 						'children' => FALSE,
 				);
 			}
-			foreach($this->childs as $child) {
+			foreach($this->getChilds() as $child) {
 				$children[] = $child->toJstreeObject($level+1);
 			}
 		}
@@ -97,11 +103,12 @@ class ChannelTree extends Tree {
 		
 	}
 	
+	
 	public function deleteEmptychannels() {
-		foreach($this->childs as $child) {
+		foreach($this->getChilds() as $child) {
 			$child->deleteEmptychannels();
 		}
-		if(count($this->childs) === 0  &&  count($this->userList) === 0) {
+		if(count($this->getChilds()) === 0  &&  count($this->getUserList()) === 0) {
 			$this->deleteNode();
 		}
 	}

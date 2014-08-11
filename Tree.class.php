@@ -24,6 +24,7 @@ class Tree {
 		$this->parent = $parent;
 	}
 	
+	
 	public function addChild($content) {
 		$tmp =  new $this($content, $this);
 		$this->childs[] = $tmp;
@@ -31,10 +32,11 @@ class Tree {
 	}
 	
 	public function deleteNode() {
-		if(isset($this->parent)) {
-			$childs = &$this->parent->childs;
+		$parent = $this->getParent();
+		if(isset($parent)) {
+			$childs = &$parent->childs;
 			foreach($childs as $id => $child) {
-				if($this->content == $child->content) {
+				if($this->getContent() == $child->getContent()) {
 					unset($childs[$id]);
 				}
 			}
@@ -44,22 +46,23 @@ class Tree {
 		}
 	}
 	
+	
 	public function toDisplayString($level=0) {
 		$res = '';
 		$res = str_pad($res, $level, "\t");
-		$res .= $this->content;
+		$res .= $this->getContent();
 		$res .= "\n";
 		
-		foreach($this->childs as $child) {
+		foreach($this->getChilds() as $child) {
 			$res .= $child->toDisplayString($level+1);;
 		}
 		return $res;
 	}
 	
-	//deep clone
+	// deep clone
 	public function __clone() {
-		if(is_object($this->content)) {
-			$this->content = clone $this->content;
+		if(is_object($this->getContent())) {
+			$this->content = clone $this->getContent();
 		}
 			
 		$oldChilds = $this->childs;
