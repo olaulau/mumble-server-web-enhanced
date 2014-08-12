@@ -42,7 +42,9 @@ function array_remove($value, &$array) {
 
 function addUsersToChannelTree(&$channelTree, $users) {
 	foreach($users as $user) {
-		$channelTree->getNodeByChannelId($user->channel)->addUser($user);
+		$node = $channelTree->getNodeByChannelId($user->channel);
+		if(isset($node))
+			$node->addUser($user);
 	}
 }
 
