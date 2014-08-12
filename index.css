@@ -27,3 +27,7 @@ th, td {
 	padding: 0;
 }
 
+
+.jstree-themeicon-custom{
+    background-size: 24px 24px !important;
+}

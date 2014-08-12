@@ -65,7 +65,7 @@ class ChannelTree extends Tree {
 			foreach($this->getUserList() as $user) {
 				$children[] = array(
 						'text' => $user->name,
-						'icon' => '',
+						'icon' => 'img/talking_off.svg',
 						'state' =>
 						array(
 								'opened' => false,
@@ -83,12 +83,12 @@ class ChannelTree extends Tree {
 			$children = FALSE;
 		
 		$res = array(
-				'text' => $this->content->name,
-				'icon' => '',
+				'text' => $this->getContent()->name,
+				'icon' => 'img/channel.svg',
 				'state' =>
 				array(
 						'opened' => true,
-						'disabled' => true,
+						'disabled' => false,
 						'selected' => false,
 				),
 				'children' => $children,
