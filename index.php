@@ -4,11 +4,11 @@
 	<title>Userlist</title>
 	
 	<link rel="stylesheet" type="text/css" href="index.css" media="screen" />
-	<link rel="stylesheet" href="jstree_test/dist/themes/default/style.min.css" />
+	<link rel="stylesheet" href="jstree/themes/default/style.min.css" />
 	
-	<script src="jstree_test/dist/libs/jquery.js"></script>
-	<script src="jstree_test/dist/jstree.min.js"></script>
-	<script src="index.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="jstree/jstree.min.js"></script>
+	<script src="js/index.js"></script>
 </head>
 <body>
 
