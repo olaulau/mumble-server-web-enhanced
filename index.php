@@ -9,6 +9,21 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="jstree/jstree.min.js"></script>
 	<script src="js/index.js"></script>
+	
+	<?php 
+	$scale = 1;
+	if( isset($_GET['scale'])  &&  is_numeric($_GET['scale'])  &&  $_GET['scale'] > 0 ) {
+		$scale = $_GET['scale'];
+	}
+	?>
+	<style media="screen" type="text/css">
+		html {
+			transform: scale(<?= $scale ?>);
+			transform-origin: 0 0;
+		}
+	</style>
+	
+	
 </head>
 <body>
 
