@@ -16,13 +16,6 @@
 
 require_once 'functions.inc.php';
 
-if (Ice_intversion() >= 30400) {
-	require 'Ice.php';
-	require 'Murmur.php';
-} else {
-	Ice_loadProfile();
-}
-
 $decoration = TRUE;
 if(isset($_GET['decoration']) && $_GET['decoration'] === "0") {
 	$decoration = FALSE;

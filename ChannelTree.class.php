@@ -59,6 +59,9 @@ class ChannelTree extends Tree {
 		return $res;
 	}
 	
+	private static function generate_icon($svg) { // this form instead of img, the text stays aligned
+		return '<i style="background-image: url(&quot;img/' . $svg . '.svg&quot;); background-position: center center; background-size: auto auto;" class="jstree-icon jstree-themeicon jstree-themeicon-custom"></i>';
+	}
 	public function toJstreeObject($level=0) {
 		if( count($this->getChilds() > 0) ) {
 			$children = array();
@@ -70,23 +73,20 @@ class ChannelTree extends Tree {
 
 				$text = '<b>' . $user->name . '</b>';
 				
-				function generate_icon($svg) { // this form instead of img, the text stays aligned
-					return '<i style="background-image: url(&quot;img/' . $svg . '.svg&quot;); background-position: center center; background-size: auto auto;" class="jstree-icon jstree-themeicon jstree-themeicon-custom"></i>';
-				}
 				if($user->recording)
-					$text .= ' ' . generate_icon('media-record');
+					$text .= ' ' . self::generate_icon('media-record');
 				if($user->suppress)
-					$text .= ' ' . generate_icon('muted_suppressed');
+					$text .= ' ' . self::generate_icon('muted_suppressed');
 				if($user->mute)
-					$text .= ' ' . generate_icon('muted_server');
+					$text .= ' ' . self::generate_icon('muted_server');
 				if($user->deaf)
-					$text .= ' ' . generate_icon('deafened_server');
+					$text .= ' ' . self::generate_icon('deafened_server');
 				if($user->selfMute)
-					$text .= ' ' . generate_icon('muted_self');
+					$text .= ' ' . self::generate_icon('muted_self');
 				if($user->selfDeaf)
-					$text .= ' ' . generate_icon('deafened_self');
+					$text .= ' ' . self::generate_icon('deafened_self');
 				if($user->userid != -1)
-					$text .= ' ' . generate_icon('authenticated');
+					$text .= ' ' . self::generate_icon('authenticated');
 
 				$children[] = array(
 					'text' => $text,
