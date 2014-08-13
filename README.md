@@ -1,11 +1,23 @@
 mumble-server-web-enhanced
 ==========================
 
-a Mumble web interface, based on the mumble-server-web old package
+A Mumble web viewer, based on the old mumble-server-web package.
 
-New version [v0.2](https://github.com/olaulau/mumble-server-web-enhanced/tree/v0.2) with tree display (thanks to [JSTree](http://www.jstree.com/demo/)), and AJAX refresh.
-It currently displays a tree with channels and players.
+check the new version [v0.3](https://github.com/olaulau/mumble-server-web-enhanced/tree/v0.3)
+features :
+- PHP based : no django requirement
+- pull and refresh data's over AJAX, thanks to [JsTree](http://www.jstree.com/] usage
+- status icons as in mumble client
+- URL parameters (decoration=0 , scale=0.75) to easy site integration
 
-Next version will focus on displaying more informations, and design (as in mumble client).
+Current version is nearly final, basic features are all here.
 
 See [INSTALL.md](https://github.com/olaulau/mumble-server-web-enhanced/blob/master/INSTALL.md) for detailled installation instructions.
+
+Futures enhancements :
+- remember closed nodes (so refresh will be nicer)
+- display more info about players (hover layer)
+- display server info (root node hover layer)
+- add footer link to sources
+- add small buttons to refresh and open a full viwer
+- 
