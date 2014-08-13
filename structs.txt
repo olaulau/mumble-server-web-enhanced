@@ -1,0 +1,106 @@
+object(Murmur_User)#216 (25) {
+  ["session"]=>
+  int(3)
+  ["userid"]=>
+  int(-1)
+  ["mute"]=>
+  bool(false)
+  ["deaf"]=>
+  bool(false)
+  ["suppress"]=>
+  bool(false)
+  ["prioritySpeaker"]=>
+  bool(false)
+  ["selfMute"]=>
+  bool(false)
+  ["selfDeaf"]=>
+  bool(false)
+  ["recording"]=>
+  bool(false)
+  ["channel"]=>
+  int(2)
+  ["name"]=>
+  string(6) "laulau"
+  ["onlinesecs"]=>
+  int(18)
+  ["bytespersec"]=>
+  int(6652)
+  ["version"]=>
+  int(66052)
+  ["release"]=>
+  string(18) "1.2.4-0.2ubuntu1.1"
+  ["os"]=>
+  string(3) "X11"
+  ["osversion"]=>
+  string(18) "Ubuntu 14.04.1 LTS"
+  ["identity"]=>
+  string(0) ""
+  ["context"]=>
+  string(0) ""
+  ["comment"]=>
+  string(0) ""
+  ["address"]=>
+  array(16) {
+    [0]=>
+    int(0)
+    [1]=>
+    int(0)
+    [2]=>
+    int(0)
+    [3]=>
+    int(0)
+    [4]=>
+    int(0)
+    [5]=>
+    int(0)
+    [6]=>
+    int(0)
+    [7]=>
+    int(0)
+    [8]=>
+    int(0)
+    [9]=>
+    int(0)
+    [10]=>
+    int(255)
+    [11]=>
+    int(255)
+    [12]=>
+    int(192)
+    [13]=>
+    int(168)
+    [14]=>
+    int(11)
+    [15]=>
+    int(1)
+  }
+  ["tcponly"]=>
+  bool(true)
+  ["idlesecs"]=>
+  int(0)
+  ["udpPing"]=>
+  float(0.22166666388512)
+  ["tcpPing"]=>
+  float(4.6986665725708)
+}
+
+
+object(Murmur_Channel)#215 (7) {
+  ["id"]=>
+  int(5)
+  ["name"]=>
+  string(3) "AAA"
+  ["parent"]=>
+  int(0)
+  ["links"]=>
+  array(0) {
+  }
+  ["description"]=>
+  string(0) ""
+  ["temporary"]=>
+  bool(false)
+  ["position"]=>
+  int(0)
+}
+
+

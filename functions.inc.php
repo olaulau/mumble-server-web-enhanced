@@ -50,7 +50,7 @@ function addUsersToChannelTree(&$channelTree, $users) {
 
 
 function objectComparebyAttribute($attribute, $o1, $o2) {
-	return strcmp($o1->$attribute, $o2->$attribute);
+	return strcasecmp($o1->$attribute, $o2->$attribute);
 }
 function objectCompareByName($o1, $o2) {
 	return objectComparebyAttribute("name", $o1, $o2);
