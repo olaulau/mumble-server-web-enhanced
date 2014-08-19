@@ -3,6 +3,8 @@ mumble-server-web-enhanced
 
 A Mumble web viewer, based on the old mumble-server-web package.
 
+![screenshot](/img/screenshot1.png?raw=true)
+
 check the new version [v0.3](https://github.com/olaulau/mumble-server-web-enhanced/tree/v0.3)
 features :
 - PHP based : no django requirement
@@ -20,4 +22,3 @@ Futures enhancements :
 - display server info (root node hover layer)
 - add footer link to sources
 - add small buttons to refresh and open a full viwer
-- 
