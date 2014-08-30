@@ -18,17 +18,17 @@ function makeChannelTreeFromList($channels) {
 
 	// ajout des fils
 	while(count($channels) > 0) { // tant qu'il en reste à traiter
-//		echo "il en reste\n";
+		//echo "il en reste\n";
 		foreach($channels as $channel) { // on parcours la liste des channels restant à traiter
-//			echo "channel : " . $channel->name . "\n";
+			//echo "channel : " . $channel->name . "\n";
 			$search = $res->getNodeByChannelId($channel->parent);
 			if(isset($search)) {
-//				echo "found parent :  " . $search->getContent()->name . "\n";
+				//echo "found parent :  " . $search->getContent()->name . "\n";
 				$search->addChild($channel);
 				array_remove($channel, $channels);
 			}
 		}
-		break;
+		//break;
 	}
 	
 	return($res);
