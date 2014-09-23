@@ -49,10 +49,11 @@ if($decoration) {
 
 ?>
 	<div id="jstree"></div>
-
+	
 <?php 
 if($decoration) {
 ?>
+	<br/>
 	<button id="refresh">REFRESH</button>
 <?php 
 }

@@ -73,6 +73,7 @@ class ChannelTree extends Tree {
 
 				$text = '<b>' . $user->name . '</b>';
 				
+				$text .= '<span class="status-icons">';
 				if($user->recording)
 					$text .= ' ' . self::generate_icon('media-record');
 				if($user->suppress)
@@ -87,6 +88,7 @@ class ChannelTree extends Tree {
 					$text .= ' ' . self::generate_icon('deafened_self');
 				if($user->userid != -1)
 					$text .= ' ' . self::generate_icon('authenticated');
+				$text .= '</span>';
 
 				$children[] = array(
 					'text' => $text,

@@ -31,3 +31,18 @@ th, td {
 .jstree-themeicon-custom{
     background-size: 24px 24px !important;
 }
+
+
+
+
+#jstree {
+	display: inline-block;
+}
+
+.jstree-anchor {
+	width: 100%;
+}
+
+.status-icons {
+	float: right;
+}
