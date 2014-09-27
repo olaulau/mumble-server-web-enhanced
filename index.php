@@ -1,3 +1,8 @@
+<?php
+$user_agent = $_SERVER['HTTP_USER_AGENT'];
+$firefox_browser = strpos($user_agent, 'Firefox') > 0;
+?>
+
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -5,6 +10,9 @@
 	
 	<link rel="stylesheet" href="jstree/themes/default/style.min.css" />
 	<link rel="stylesheet" type="text/css" href="index.css" media="screen" />
+	<?php if($firefox_browser): ?>
+		<link rel="stylesheet" type="text/css" href="FF_hack.css" media="screen" />
+	<?php endif; ?>
 	
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="jstree/jstree.min.js"></script>

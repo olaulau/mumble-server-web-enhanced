@@ -45,4 +45,9 @@ th, td {
 
 .status-icons {
 	float: right;
+	height: 24px;
+}
+
+.clear {
+	clear: both;
 }
