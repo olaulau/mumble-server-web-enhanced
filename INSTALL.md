@@ -1,9 +1,9 @@
 INTRO
 =
-This project is directly derivated from the sourcesfound in the old mumble-server-web package sources.
-This package isn't available anymore, because it was very simple, and unmaintened. Thus, last version (under Ubuntu 12.04) didn't worked out-of-the-box.
+This project is directly derived from the sources found in the old mumble-server-web package sources.
+This package isn't available any more, because it was very simple, and unmaintained. Thus, last version (under Ubuntu 12.04) didn't worked out-of-the-box.
 
--enhanced version has the same requirements as original,  so here are instructions to make the old package work on your system, which should ensure that -enhanced version will work.
+The '-enhanced' version has the same requirements as original,  so here are instructions to make the old package work on your system, which should ensure that '-enhanced' version will work.
 
 
 The base
@@ -37,7 +37,7 @@ Ubuntu 14.04
 => [ubuntu precise package download page](http://packages.ubuntu.com/precise-updates/all/mumble-server-web/download)  
 `wget http://fr.archive.ubuntu.com/ubuntu/pool/universe/m/mumble/mumble-server-web_1.2.3-2ubuntu4.1_all.deb`  
 `dpkg -i mumble-server-web_1.2.3-2ubuntu4.1_all.deb`  
-(it will fail due to dependencies)  
+(It will fail due to dependencies)  
 `apt-get -f install`  
 `apt-get install libcgi-session-per`l  
 `dpkg -i mumble-server-web_1.2.3-2ubuntu4.1_all.de`  
@@ -56,17 +56,18 @@ Ubuntu 14.04
 Tests
 =
 => [http://HOST/mumble-server/](http://HOST/mumble-server/)  
-it should display (at least) someting like that :  
+It should display (at least) something like that :  
 
 > SERVER #  
 Name	Channel
 
-and maybe a list of channel/player if  people are conencted to your mumble-server.
+and maybe a list of channel/player if  people are connected to your mumble-server.
 
 
 So ?
 =
-Now you can `git clone` the project in any directory served by Apache and  PHP, like any PHP app.  
+Now you can `git clone` the project in any directory served by Apache and PHP, like any PHP app.  
 I've included a `Murmur.php` symlink so that it can be run from anywhere (on the same host).
 
 ######Enjoy ;-)
+
