@@ -19,6 +19,18 @@ class ChannelTree extends Tree {
 		return $this->userList;
 	}
 	
+	public function getUserCount() {
+		return count($this->userList);
+	}
+	
+	public function getTotalUserCount() {
+		$res = $this->getUserCount();
+		foreach ($this->getChilds() as $child) {
+			$res += $child->getTotalUserCount();
+		}
+		return $res;
+	}
+	
 	
 	public function addUser($user) {
 		$this->userList[] = $user;
@@ -113,7 +125,7 @@ class ChannelTree extends Tree {
 		// JSON array integration
 		if( empty($children) )
 			$children = FALSE;
-		$nbUsers = count($this->getUserList());
+		$nbUsers = $this->getTotalUserCount();
 		$userNumberDisplay = ($nbUsers > 0 ? " ($nbUsers)" : "");
 		$res = array(
 			'text' => $this->getContent()->name . $userNumberDisplay ,
