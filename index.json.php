@@ -58,7 +58,7 @@ try {
 				$treeToDisplay = $reducedChannelTree;
 			}
 			
-			echo json_encode($treeToDisplay->toJstreeObject());
+			echo json_encode($treeToDisplay->toJstreeObject(0, $name));
 			break;
 		}
 

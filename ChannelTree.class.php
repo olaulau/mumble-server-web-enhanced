@@ -74,7 +74,7 @@ class ChannelTree extends Tree {
 	private static function generate_icon($svg) { // this form instead of img, the text stays aligned
 		return '<i style="background-image: url(&quot;img/' . $svg . '.svg&quot;); background-position: center center; background-size: auto auto;" class="jstree-icon jstree-themeicon jstree-themeicon-custom"></i>';
 	}
-	public function toJstreeObject($level=0) {
+	public function toJstreeObject($level=0, $serverName="Root") {
 		$children = array();
 		
 		// users
@@ -128,7 +128,7 @@ class ChannelTree extends Tree {
 		$nbUsers = $this->getTotalUserCount();
 		$userNumberDisplay = ($nbUsers > 0 ? " ($nbUsers)" : "");
 		$res = array(
-			'text' => $this->getContent()->name . $userNumberDisplay ,
+			'text' => ( $level==0 ? $serverName : $this->getContent()->name . $userNumberDisplay ),
 			'icon' => 'img/channel.svg',
 			'state' =>
 			array(
