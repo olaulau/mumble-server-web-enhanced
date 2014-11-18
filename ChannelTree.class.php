@@ -63,52 +63,56 @@ class ChannelTree extends Tree {
 		return '<i style="background-image: url(&quot;img/' . $svg . '.svg&quot;); background-position: center center; background-size: auto auto;" class="jstree-icon jstree-themeicon jstree-themeicon-custom"></i>';
 	}
 	public function toJstreeObject($level=0) {
-		if( count($this->getChilds() > 0) ) {
-			$children = array();
-			foreach($this->getUserList() as $user) {
-				if($user->idlesecs === 0)
-					$icon = 'img/talking_on.svg';
-				else
-					$icon = 'img/talking_off.svg';
-
-				$text = '<b>' . $user->name . '</b>';
-				
-				$text .= '<span class="status-icons">';
-				if($user->recording)
-					$text .= ' ' . self::generate_icon('media-record');
-				if($user->suppress)
-					$text .= ' ' . self::generate_icon('muted_suppressed');
-				if($user->mute)
-					$text .= ' ' . self::generate_icon('muted_server');
-				if($user->deaf)
-					$text .= ' ' . self::generate_icon('deafened_server');
-				if($user->selfMute)
-					$text .= ' ' . self::generate_icon('muted_self');
-				if($user->selfDeaf)
-					$text .= ' ' . self::generate_icon('deafened_self');
-				if($user->userid != -1)
-					$text .= ' ' . self::generate_icon('authenticated');
-				$text .= '</span>';
-
-				$children[] = array(
-					'text' => $text,
-					'icon' => $icon,
-					'state' =>
-					array(
-						'opened' => false,
-						'disabled' => false,
-						'selected' => false,
-					),
-					'children' => FALSE,
-				);
-			}
-			foreach($this->getChilds() as $child) {
-				$children[] = $child->toJstreeObject($level+1);
-			}
-		}
-		else
-			$children = FALSE;
+		$children = array();
 		
+		// users
+		foreach($this->getUserList() as $user) {
+			if($user->idlesecs === 0)
+				$icon = 'img/talking_on.svg';
+			else
+				$icon = 'img/talking_off.svg';
+
+			$text = '<b>' . $user->name . '</b>';
+			
+			// status icons
+			$text .= '<span class="status-icons">';
+			if($user->recording)
+				$text .= ' ' . self::generate_icon('media-record');
+			if($user->suppress)
+				$text .= ' ' . self::generate_icon('muted_suppressed');
+			if($user->mute)
+				$text .= ' ' . self::generate_icon('muted_server');
+			if($user->deaf)
+				$text .= ' ' . self::generate_icon('deafened_server');
+			if($user->selfMute)
+				$text .= ' ' . self::generate_icon('muted_self');
+			if($user->selfDeaf)
+				$text .= ' ' . self::generate_icon('deafened_self');
+			if($user->userid != -1)
+				$text .= ' ' . self::generate_icon('authenticated');
+			$text .= '</span>';
+
+			$children[] = array(
+				'text' => $text,
+				'icon' => $icon,
+				'state' =>
+				array(
+					'opened' => false,
+					'disabled' => false,
+					'selected' => false,
+				),
+				'children' => FALSE,
+			);
+		}
+		
+		// sub-channels
+		foreach($this->getChilds() as $child) {
+			$children[] = $child->toJstreeObject($level+1);
+		}
+		
+		// JSON array integration
+		if( empty($children) )
+			$children = FALSE;
 		$nbUsers = count($this->getUserList());
 		$userNumberDisplay = ($nbUsers > 0 ? " ($nbUsers)" : "");
 		$res = array(
