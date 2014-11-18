@@ -128,7 +128,7 @@ class ChannelTree extends Tree {
 		$nbUsers = $this->getTotalUserCount();
 		$userNumberDisplay = ($nbUsers > 0 ? " ($nbUsers)" : "");
 		$res = array(
-			'text' => ( $level==0 ? $serverName : $this->getContent()->name . $userNumberDisplay ),
+			'text' => ( $level==0 ? $serverName : $this->getContent()->name ) . $userNumberDisplay,
 			'icon' => 'img/channel.svg',
 			'state' =>
 			array(
