@@ -8,7 +8,7 @@ A Mumble web viewer, based on the old [mumble-server-web package](http://package
 Check the new version [v0.3](https://github.com/olaulau/mumble-server-web-enhanced/tree/v0.3)
 features :
 - PHP based : no django requirement
-- pull and refresh data's over AJAX, thanks to [JsTree](http://www.jstree.com/] usage
+- pull and refresh data's over AJAX, thanks to [JsTree](http://www.jstree.com/) usage
 - status icons as in mumble client
 - URL parameters (decoration=0 , scale=0.75) to easy site integration
 - reduced mode, which hides empty channels
