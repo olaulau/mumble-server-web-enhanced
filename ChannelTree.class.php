@@ -127,9 +127,10 @@ class ChannelTree extends Tree {
 			$children = FALSE;
 		$nbUsers = $this->getTotalUserCount();
 		$userNumberDisplay = ($nbUsers > 0 ? " ($nbUsers)" : "");
+		// actual channel
 		$res = array(
 			'text' => ( $level==0 ? $serverName : $this->getContent()->name ) . $userNumberDisplay,
-			'icon' => 'img/channel.svg',
+			'icon' => ( empty($this->getContent()->links) ? 'img/channel.svg' : 'img/channel_linked.svg' ), // channel_linked.svg for linked channels
 			'state' =>
 			array(
 				'opened' => true,
