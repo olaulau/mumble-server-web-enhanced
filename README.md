@@ -23,3 +23,6 @@ Futures enhancements :
 - display server info (root node hover layer)
 - add footer link to sources
 - add small buttons to refresh and open a full viewer
+
+Used resources :
+- [mumble client icons](https://github.com/mumble-voip/mumble/tree/master/icons) ([3-clause BSD license](https://github.com/mumble-voip/mumble/blob/master/LICENSE))
