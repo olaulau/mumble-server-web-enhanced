@@ -3,7 +3,7 @@ INTRO
 This project is directly derived from the sources found in the old mumble-server-web package sources.
 This package isn't available any more, because it was very simple, and unmaintained. Thus, last version (under Ubuntu 12.04) didn't worked out-of-the-box.
 
-The '-enhanced' version has the same requirements as original,  so here are instructions to make the old package work on your system, which should ensure that '-enhanced' version will work.
+The '-enhanced' version has the same requirements as the original, so here are instructions to make the old package work on your system, which should ensure that the '-enhanced' version will work.
 
 
 The base
@@ -32,14 +32,14 @@ Ubuntu 12.04
 `service apache2 restart`
 
 
-Ubuntu 14.04
+Ubuntu 14.04 and newer
 =
 => [ubuntu precise package download page](http://packages.ubuntu.com/precise-updates/all/mumble-server-web/download)  
 `wget http://fr.archive.ubuntu.com/ubuntu/pool/universe/m/mumble/mumble-server-web_1.2.3-2ubuntu4.1_all.deb`  
 `dpkg -i mumble-server-web_1.2.3-2ubuntu4.1_all.deb`  
 (It will fail due to dependencies)  
 `apt-get -f install`  
-`apt-get install libcgi-session-per`l  
+`apt-get install libcgi-session-perl`  
 `dpkg -i mumble-server-web_1.2.3-2ubuntu4.1_all.de`  
 `ln -s /etc/apache2/conf.d/mumble-server-web.conf etc/apache2/conf-available/`  
 `a2enconf mumble-server-web`  
