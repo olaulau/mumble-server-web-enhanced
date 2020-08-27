@@ -6,6 +6,10 @@ A Mumble web viewer, based on the old [mumble-server-web package](http://package
 
 See [INSTALL.md](https://github.com/olaulau/mumble-server-web-enhanced/blob/master/INSTALL.md) for detailled installation instructions.
 
+### Requirements
+- PHP (7.4 tested)
+- PHP module zeroconf ice (php-zeroc-ice package under Debian / Ubuntu)
+
 ### Features
 - PHP based : no django requirement
 - pull and refresh data's over AJAX, thanks to [JsTree](http://www.jstree.com/) usage

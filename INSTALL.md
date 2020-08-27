@@ -51,6 +51,18 @@ sample : `apt-get install apache2 php5 libapache2-mod-php5 mumble-server`
 `ln -s /usr/share/slice/Murmur.php`  
 
 
+### Ubuntu 18.04 and newer
+
+`apt install php-zeroc-ice zeroc-ice`   
+
+`cd /usr/share/slice`  
+`slice2php -I /usr/share/ice/slice/ /usr/share/slice/Murmur.ice`  
+
+`vim /etc/mumble-server.ini`  
+uncomment `ice="tcp -h 127.0.0.1 -p 6502"`  
+`systemctl restart mumble-server.service`  
+
+
 ### Tests
 => [http://HOST/mumble-server/](http://HOST/mumble-server/)  
 It should display (at least) something like that :  

@@ -42,7 +42,7 @@ class Tree {
 			}
 		}
 		else {
-			unset($this);
+// 			unset($this);
 		}
 	}
 	

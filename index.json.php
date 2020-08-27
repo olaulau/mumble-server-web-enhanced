@@ -4,17 +4,17 @@ header('Content-type: application/json');
 
 require_once 'functions.inc.php';
 
-if (Ice_intversion() >= 30400) {
+if (Ice\intversion() >= 30400) {
 	require 'Ice.php';
 	require 'Murmur.php';
 } else {
-	Ice_loadProfile();
+	Ice\loadProfile();
 }
 
 
 try {
-	if (Ice_intversion() >= 30400) {
-		$ICE = Ice_initialize();
+	if (Ice\intversion() >= 30400) {
+		$ICE = Ice\initialize();
 	}
 
 	$base = $ICE->stringToProxy("Meta:tcp -h 127.0.0.1 -p 6502");
@@ -64,7 +64,7 @@ try {
 
 	}
 }
-catch (Ice_LocalException $ex) {
+catch (Ice\LocalException $ex) {
 	echo "Exception occured : <br/>";
 	print_r($ex);
 }
