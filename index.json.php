@@ -1,8 +1,7 @@
 <?php
 
-header('Content-type: application/json');
-
 require_once 'functions.inc.php';
+
 
 if (Ice\intversion() >= 30400) {
 	require 'Ice.php';
@@ -58,6 +57,7 @@ try {
 				$treeToDisplay = $reducedChannelTree;
 			}
 			
+            header('Content-type: application/json');
 			echo json_encode($treeToDisplay->toJstreeObject(0, $name));
 			break;
 		}
@@ -68,5 +68,3 @@ catch (Ice\LocalException $ex) {
 	echo "Exception occured : <br/>";
 	print_r($ex);
 }
-
-?>

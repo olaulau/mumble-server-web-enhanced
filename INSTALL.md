@@ -51,7 +51,7 @@ sample : `apt-get install apache2 php5 libapache2-mod-php5 mumble-server`
 `ln -s /usr/share/slice/Murmur.php`  
 
 
-### Ubuntu 18.04 and newer
+### Ubuntu 18.04 / Debian 10 and newer
 
 `apt install php-zeroc-ice zeroc-ice`   
 
